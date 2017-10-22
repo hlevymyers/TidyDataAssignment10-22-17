@@ -1,0 +1,41 @@
+
+library(dplyr)
+library(readxl)
+library(readr)
+
+setwd("C:/Users/hlevy/Documents/R/HumanActivity")
+
+#reading and assembling test data
+testingDF <- read_xlsx("testxyz.xlsx") #read in test data
+SubjectID1 <- read_xlsx("subjectnumbers.xlsx")
+Activity1 <- read_xlsx("activity.xlsx")
+Colvar <- read_xlsx("MeasurementValues - 10.19.17.xlsx", col_names = FALSE)
+testingDF <- cbind(testingDF, SubjectID = SubjectID1) #Add subject id to results
+testingDF <- cbind(testingDF, Activity = Activity1) #Add activity as a name to each result
+colnames(testingDF) <- Colvar
+head(testingDF)
+
+#reading and assembling train data
+trainingDF <- read_xlsx("trainxyz.xlsx") #read in train data
+SubjectID2 <- read_xlsx("subjectnumberstr.xlsx")
+Activity2 <- read_xlsx("activity2.xlsx")
+trainingDF <- cbind(trainingDF, SubjectID = SubjectID2) #Add subject id to results
+trainingDF <- cbind(trainingDF, Activity = Activity2) #Add activity as a name to each result
+colnames(trainingDF) <- as.character(Colvar)
+
+#Add trainingDF to testingDF making one complete DF
+testingDF <- rbind(testingDF, trainingDF)
+head(testingDF)
+
+#Extract mean and standard deviation for each measurement
+subset1 <- select(testingDF, contains("mean"))
+subset2 <- select(testingDF, contains("std"))
+subset1
+subset2
+
+#Create second, independent tidy data set with average of variable for each activity and subject id
+testing2 <- testingDF
+testing2 %>% group_by(`562_SubjectID`, `563_Activity`) %>% summarize_each(funs(mean))
+
+#submit formatting
+write.table(r_analysis_v2, row.names = FALSE)
