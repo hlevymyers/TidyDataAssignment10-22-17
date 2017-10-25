@@ -1,15 +1,25 @@
 Code Book
 The goal of this combined data set is to make a very clean and tidy data set. 
 The entire data set includes a READ ME file, a Code Book and a data frame, testingDF. The original data set included two data sets, test and train. Both data sets have been merged into one, testingDF, all linked by the same 563 column names, 561 variables, and two others columns. The first new column, SubjectID ranges from 1 to 30, one for each of the 30 subjects, that were 19 to 48 years old, and Activity, the second one, identifies six separate activities, walking, walking upstairs, walking downstairs, standing, sitting, and laying down performed by each subject. Each row measurement includes the subject id and activity name. The subjects performed these activities wearing a Samsung Galaxy S II smartphone attached to their waist. The data frames represent three different types of observations from the accelerometer and gyroscope in the smartphone, body acceleration measured in “g”s, or meters per second squared, m/seg2, total acceleration measured also measured in m/seg2 and the gyroscope measurements are in rad/seg. 
-The mean and standard deviation were extracted from the testingDF data frame. A second data frame, testing2, was created to compute the mean of each variable, by subject and activity. 
+Several modifications have been made to the original data in order to make a tidier data set.  
+1.	A column (562_SubjectID)  has been added to identify which subject performed each measurement. Previously this information was stored in a separate file. 
+2.	A column (563_ Activity) was added to identify by descriptive name which of the six activities were being performed for the measurement. Previously this information was stored in two files – one to identify each row activity by number and another file to match the number to the specific named activity. 
+3.	Several column names were the same although the data was different; therefore, the columns were not combined or eliminated which would remove data and possibly destroy the integrity of the data set, instead the column name was modified. For example, rows 303, 317, and 331 were all named “fBodyAcc-bandsEnergy()-1,8”. In order to have unique column names, necessary for extracting the mean and standard deviations, a column number was added to the beginning of the column name. The testingDF data frame now includes, 303_fBodyAcc-bandsEnergy()-1,8, 317_fBodyAcc-bandsEnergy()-1,8, and 331_fBodyAcc-bandsEnergy()-1,8. 
+4.	For statistical purposes, the subject data was randomly divided into two separate categories, train and test. This created two separate data frames. These have now been combined into one data frame, testingDF, including all data. 
+
+The mean and standard deviation were extracted from the testingDF data frame. 
+A sample screen shot of the mean extraction is below.
+![meanExtraction](
+
+A sample screen shot of the standard deviation extraction is below. 
+ 
+
+A second data frame, testing2, was created to compute the mean of each variable, by subject and activity. A sample screen shot showing the result is below.
+ 
+
 The original data set can be found here: 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 A list of all the files in the original data set are included in the READ ME file.
-Several modifications have been made to the original data in order to make a tidier data set.  
-1.	A column (SubjectID)  has been added to identify which subject performed each measurement. Previously this information was stored in a separate file. 
-2.	A column (Activity) was added to identify by descriptive name which of the six activities were being performed for the measurement. Previously this information was stored in two files – one to identify each row activity by number and another file to match the number to the specific named activity. 
-3.	Several column names were the same although the data was different; therefore, the columns were not combined or eliminated which would remove data and possibly destroy the integrity of the data set, instead the column name was modified. For example, rows 303, 317, and 331 were all named “fBodyAcc-bandsEnergy()-1,8”. In order to have unique column names, necessary for subsetting, the column number was added to the beginning of the column name. The data frame now includes, 303_fBodyAcc-bandsEnergy()-1,8, 317_fBodyAcc-bandsEnergy()-1,8, and 331_fBodyAcc-bandsEnergy()-1,8. 
-4.	For statistical purposes, the subject data was randomly divided into two separate categories, train and test. This created two separate data frames. These have now been combined into one data frame including all data. 
 The variables in the original dataset include 3-axial signals in the x, y, and z directions.
 
 tBodyAcc-XYZ
