@@ -15,11 +15,13 @@ A sample screen shot of the standard deviation extraction is below.
 ![standardDeviationExtraction](https://github.com/hlevymyers/TidyDataAssignment10-22-17/blob/master/StdExtract.PNG)
 
 A second data frame, testing2, was created to compute the mean of each variable, by subject and activity. A sample screen shot showing the result is below.
-![subjectIDActivityMeanStd](
+![subjectIDActivityMeanStd](https://github.com/hlevymyers/TidyDataAssignment10-22-17/blob/master/SubjectIDActivityMeanStd.PNG)
 
 The original data set can be found here: 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
 A list of all the files in the original data set are included in the READ ME file.
+
 The variables in the original dataset include 3-axial signals in the x, y, and z directions.
 
 tBodyAcc-XYZ
