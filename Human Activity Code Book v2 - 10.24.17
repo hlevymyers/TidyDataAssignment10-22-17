@@ -9,10 +9,10 @@ Several modifications have been made to the original data in order to make a tid
 
 The mean and standard deviation were extracted from the testingDF data frame. 
 A sample screen shot of the mean extraction is below.
-![meanExtraction](
+![meanExtraction](https://github.com/hlevymyers/TidyDataAssignment10-22-17/blob/master/MeanExtract.PNG)
 
 A sample screen shot of the standard deviation extraction is below. 
- 
+![standardDeviationExtraction]( 
 
 A second data frame, testing2, was created to compute the mean of each variable, by subject and activity. A sample screen shot showing the result is below.
  
